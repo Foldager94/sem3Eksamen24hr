@@ -1,10 +1,17 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import facade from "./apiFacade";
+import Table from "./Table";
+import ListOfBreeds from "./ListOfBreeds";
+import BreedDetails from "./BreedDetails";
 const Home = () => {
+  const [breedHook, setBreedHook] = useState();
   return (
-    <>
-      <h3>Velkommen til gruppe 5's site</h3>
-    </>
+    <div className="container">
+      <div className="row">
+        <ListOfBreeds setBreedHook={setBreedHook} />
+        <BreedDetails breedHook={breedHook} />
+      </div>
+    </div>
   );
 };
 

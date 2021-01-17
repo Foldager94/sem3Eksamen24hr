@@ -1,5 +1,5 @@
 import jwt_decode from "jwt-decode";
-import { Site } from "./../sites"
+import { Site, EditDog, DeleteDog } from "./../sites"
 
 
 const URL = Site;
@@ -35,7 +35,6 @@ const getToken = () => {
 }
 const loggedIn = () => {
     const loggedIn = getToken() != null;
-    console.log(loggedIn)
     return loggedIn;
 }
 
@@ -79,6 +78,18 @@ function ApiFacade() {
         return opts;
     }
 
+    const deleteDog = (dog) => {
+        console.log(dog)
+        const option = makeOptions("POST", true, dog)
+        fetch(DeleteDog, option);
+
+    }
+
+    const editDog = (dog) => {
+        const option = makeOptions("POST", true, dog)
+        fetch(EditDog, option);
+    }
+
     return {
         makeOptions,
         setToken,
@@ -88,7 +99,9 @@ function ApiFacade() {
         logout,
         fetchData,
         getUserName,
-        getRoles
+        getRoles,
+        deleteDog,
+        editDog
     }
 }
 const facade = ApiFacade();

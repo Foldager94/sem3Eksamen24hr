@@ -1,23 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import facade from "./apiFacade";
 import { UserUrlUserCount } from "./../sites";
+import UserDogInput from "./UserDogInput";
+import UsersDogs from "./UsersDogs";
 
-const url = UserUrlUserCount;
+const url = "http://localhost:8080/jpareststarter/api/dog/myDogs/";
 
 const UserSite = () => {
-  const [count, setCount] = useState("");
+  const [userDogs, setUserDogs] = useState([]);
+  const [editDog, setEditDog] = useState({});
+  const [isEdit, setIsEdit] = useState(false);
+  useEffect(() => {
+    let options = facade.makeOptions("GET", true);
+    fetch(url, options)
+      .then((res) => res.json())
+      .then((data) => {
+        setUserDogs(data);
+      });
+  }, [isEdit]);
   return (
     <>
-      <p>Number of users on this site: {count}</p>
-      <button
-        onClick={() =>
-          fetch(url, facade.makeOptions("GET", true))
-            .then((res) => res.json())
-            .then((data) => setCount(data))
-        }
-      >
-        Hente antal bruger
-      </button>
+      <UserDogInput
+        array={userDogs}
+        setArray={setUserDogs}
+        editDog={editDog}
+        setEditDog={setEditDog}
+        isEdit={isEdit}
+        setIsEdit={setIsEdit}
+      />
+      <UsersDogs
+        array={userDogs}
+        setEditDog={setEditDog}
+        setIsEdit={setIsEdit}
+      />
     </>
   );
 };
