@@ -10,6 +10,7 @@ const UserSite = () => {
   const [userDogs, setUserDogs] = useState([]);
   const [editDog, setEditDog] = useState({});
   const [isEdit, setIsEdit] = useState(false);
+  const [activate, setActivate] = useState(0);
   useEffect(() => {
     let options = facade.makeOptions("GET", true);
     fetch(url, options)
@@ -17,16 +18,16 @@ const UserSite = () => {
       .then((data) => {
         setUserDogs(data);
       });
-  }, [isEdit]);
+  }, [isEdit, activate]);
   return (
     <>
       <UserDogInput
-        array={userDogs}
-        setArray={setUserDogs}
         editDog={editDog}
         setEditDog={setEditDog}
         isEdit={isEdit}
         setIsEdit={setIsEdit}
+        setActivate={setActivate}
+        activate={activate}
       />
       <UsersDogs
         array={userDogs}

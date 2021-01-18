@@ -4,12 +4,12 @@ import facade from "./apiFacade";
 const url = "http://localhost:8080/jpareststarter/api/dog/addDog/";
 
 const UserDogInput = ({
-  setArray,
-  array,
   editDog,
   setEditDog,
   isEdit,
   setIsEdit,
+  setActivate,
+  activate,
 }) => {
   const [dogInfo, setDogInfo] = useState({});
 
@@ -17,8 +17,8 @@ const UserDogInput = ({
     e.preventDefault();
     let option = facade.makeOptions("POST", true, dogInfo);
     fetch(url, option);
-    setIsEdit(true);
-    setIsEdit(false);
+    setActivate(activate++);
+    console.log("activate: ", activate);
   };
 
   const handleChange = (e) => {

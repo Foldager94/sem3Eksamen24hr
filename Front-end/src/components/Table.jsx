@@ -14,7 +14,7 @@ const GetTableBody = ({ array, clickHandler }) => {
       return <td key={countOne + "." + countTwo}>{value}</td>;
     });
     objectValues.push(
-      <td onClick={clickHandler} id={theObject}>
+      <td key={countOne + ".b"} onClick={clickHandler} id={theObject}>
         edit/delete
       </td>
     );
