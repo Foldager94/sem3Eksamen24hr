@@ -1,4 +1,4 @@
-export const Site = "https://www.vd52024.dk/sem3Eksamen ";
+export const Site = "https://www.vd52024.dk/sem3Eksamen";
 
 export const EditDog = Site + "/api/dog/editDog"
 
