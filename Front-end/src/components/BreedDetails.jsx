@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import facade from "./apiFacade";
 import Table from "./Table";
-
-const url = "http://localhost:8080/jpareststarter/api/dog/dog-breed/";
+import { DogBreedDetails } from "./../sites";
 
 const BreedDetails = ({ breedHook }) => {
   const [breedDetails, setBreedDetails] = useState({
@@ -16,7 +15,7 @@ const BreedDetails = ({ breedHook }) => {
     if (breedHook !== undefined) {
       let options = facade.makeOptions("GET", true);
 
-      fetch(url + breedHook, options)
+      fetch(DogBreedDetails + breedHook, options)
         .then((res) => res.json())
         .then((data) => {
           setBreedDetails(data);

@@ -3,8 +3,7 @@ import facade from "./apiFacade";
 import { UserUrlUserCount } from "./../sites";
 import UserDogInput from "./UserDogInput";
 import UsersDogs from "./UsersDogs";
-
-const url = "http://localhost:8080/jpareststarter/api/dog/myDogs/";
+import { UserDogList } from "./../sites";
 
 const UserSite = () => {
   const [userDogs, setUserDogs] = useState([]);
@@ -13,7 +12,7 @@ const UserSite = () => {
   const [activate, setActivate] = useState(0);
   useEffect(() => {
     let options = facade.makeOptions("GET", true);
-    fetch(url, options)
+    fetch(UserDogList, options)
       .then((res) => res.json())
       .then((data) => {
         setUserDogs(data);

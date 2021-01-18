@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import facade from "./apiFacade";
-
-const url = "http://localhost:8080/jpareststarter/api/dog/addDog/";
+import { AddDog } from "./../sites";
 
 const UserDogInput = ({
   editDog,
@@ -16,7 +15,7 @@ const UserDogInput = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     let option = facade.makeOptions("POST", true, dogInfo);
-    fetch(url, option);
+    fetch(AddDog, option);
     setActivate(activate++);
     console.log("activate: ", activate);
   };

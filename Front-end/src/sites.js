@@ -1,11 +1,11 @@
-export const Site = "http://localhost:8080/jpareststarter";
+export const Site = "https://www.vd52024.dk/sem3Eksamen ";
 
-export const AdminUrlUserCount = "http://localhost:8080/jpareststarter/api/admin/userCount";
+export const EditDog = Site + "/api/dog/editDog"
 
-export const UserUrlUserCount = "http://localhost:8080/jpareststarter/api/user/userCount"
+export const DeleteDog = Site + "/api/dog/deleteDog"
 
-export const DailyFunUrl = "http://localhost:8080/jpareststarter/api/dailyfun";
+export const UserDogList = Site + "/api/dog/myDogs/";
 
-export const EditDog = "http://localhost:8080/jpareststarter/api/dog/editDog"
+export const AddDog = Site + "/api/dog/addDog/";
 
-export const DeleteDog = "http://localhost:8080/jpareststarter/api/dog/deleteDog"
+export const DogBreedDetails = Site + "/api/dog/dog-breed/";
